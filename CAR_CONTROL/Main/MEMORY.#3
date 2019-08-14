@@ -1,0 +1,106 @@
+;==================== MOST INTERFACE ========================
+
+;======= DATA =============================
+
+R0_BANK0					data		00h
+R1_BANK0					data		01h
+R2_BANK0					data		02h
+R3_BANK0					data		03h
+R4_BANK0					data		04h
+R5_BANK0					data		05h
+R6_BANK0					data		06h
+R7_BANK0					data		07h
+R0_BANK1					data		08h
+R1_BANK1					data		09h
+R2_BANK1					data		0Ah
+R3_BANK1					data		0Bh
+R4_BANK1					data		0Ch
+R5_BANK1					data		0Dh
+R6_BANK1					data		0Eh
+R7_BANK1					data		0Fh
+R0_BANK2					data		10h
+R1_BANK2					data		11h
+R2_BANK2					data		12h
+R3_BANK2					data		13h
+R4_BANK2					data		14h
+R5_BANK2					data		15h
+R6_BANK2					data		16h
+R7_BANK2					data		17h
+R0_BANK3					data		18h
+R1_BANK3					data		19h
+R2_BANK3					data		1Ah
+R3_BANK3					data		1Bh
+R4_BANK3					data		1Ch
+R5_BANK3					data		1Dh
+R6_BANK3					data		1Eh
+R7_BANK3					data		1Fh
+
+;========== BIT ============================
+
+;------- 26h - флаги состояний
+;									bit			30h
+;									bit			31h			;
+;									bit			32h			;
+b_task_taken			bit			33h			;Задача взята на вылнение
+;									bit			34h			;
+;									bit			35h			;
+;									bit			36h			;
+;									bit			37h			;
+
+;									bit			38h			
+;									bit			39h		
+;									bit			3Ah			
+b_wait_uart_tx		bit			3Bh			;Флаг завершения вывода буфера UART
+;
+;
+;
+;									bit			3Fh			
+
+;======= DATA =============================
+
+int_task_counter	data		3Dh			;            1 - счетчик записи нуьренних задач
+task_buf_wr_cnt		data		3Eh			;						 1 - счетчик записи буфера задач
+task_buf_rd_cnt		data		3Fh			;						 1 - счетчик чтения буфера задач
+		
+uart_rx_status		data		71h			;(71h)			 1 - статус приема UART
+uart_command			data		72h			;(72h)			 1 - команда
+uart_size_h				data		73h			;(73h)			 1 - размер данных (ст. байт)
+uart_size_l				data		74h			;(74h)			 1 - размер данных (мл. байт)
+uart_buf_addr_h		data		75h			;(75h)			 1 - адрес буфера uart (ст. байт)
+uart_buf_addr_l		data		76h			;(76h)		   1 - адрес буфера uart (мл. байт)
+uart_crc					data		77h			;(77h)			 1 - CRC
+uart_size_tx			data		78h			;(78h)			 1 - размер данных (tx)
+uart_buf_cnt_tx		data		79h			;(79h)			 1 - счетчик буфера uart (tx)
+
+;========== IDATA ==========================
+
+;------ 80h --------------------------------
+STACK							idata		80h
+
+;========== XDATA ==========================
+
+eeprom_page						equ			0
+eeprom								xdata		eeprom_page*256
+
+;-------------------------------------------
+
+uart_tx_buffer_page		equ			1
+uart_tx_buffer				xdata		uart_tx_buffer_page*256			;буфер uart_tx
+uart_tx_data					xdata		uart_tx_buffer_page*256+5		;буфер uart_tx_data
+
+;-------------------------------------------
+
+_page									equ			2												;
+task_buffer						xdata		_page*256+0							;32 - буфер адресов задач	
+int_task_buffer				xdata		_page*256+32						;32 - буфер внутренних задач
+
+;-------------------------------------------
+
+;-------------------------------------------
+
+uart_rx_page					equ			5												;11 страниц с 5 по 15
+uart_rx_buffer				xdata		uart_rx_page*256
+uart_rx_size					xdata		uart_rx_page*256+2
+uart_rx_data					xdata		uart_rx_page*256+4
+
+

@@ -1,0 +1,98 @@
+#include "Config.h" 
+
+// Peripheral specific initialization functions,
+// Called from the Init_Device() function
+void Reset_Sources_Init()
+{
+    int i = 0;
+    VDM0CN    = 0x80;
+    for (i = 0; i < 350; i++);  // Wait 100us for initialization
+    RSTSRC    = 0x06;
+}
+
+void PCA_Init()
+{
+    PCA0MD    &= ~0x40;
+    PCA0MD    = 0x00;
+    PCA0CPL4  = 0xFF;
+    PCA0MD    |= 0x40;
+    PCA0CPH4  = 0xFF;
+}
+
+void Timer_Init()
+{
+    TCON      = 0x50;
+    TMOD      = 0x21;
+    CKCON     = 0x08;
+    TH1       = 0x96;
+}
+
+void Timer_Init()
+{
+    TCON      = 0x40;
+    TMOD      = 0x20;
+    CKCON     = 0x08;
+    TH1       = 0x96;
+}
+
+void UART_Init()
+{
+    SCON0     = 0x30;
+}
+
+void Port_IO_Init()
+{
+    // P0.0  -  Unassigned,  Open-Drain, Digital
+    // P0.1  -  Unassigned,  Open-Drain, Digital
+    // P0.2  -  Unassigned,  Open-Drain, Digital
+    // P0.3  -  Unassigned,  Push-Pull,  Digital
+    // P0.4  -  TX0 (UART0), Push-Pull,  Digital
+    // P0.5  -  RX0 (UART0), Open-Drain, Digital
+    // P0.6  -  Unassigned,  Open-Drain, Digital
+    // P0.7  -  Unassigned,  Open-Drain, Digital
+
+    // P1.0  -  Unassigned,  Open-Drain, Digital
+    // P1.1  -  Unassigned,  Open-Drain, Digital
+    // P1.2  -  Unassigned,  Open-Drain, Digital
+    // P1.3  -  Unassigned,  Open-Drain, Digital
+    // P1.4  -  Unassigned,  Open-Drain, Digital
+    // P1.5  -  Unassigned,  Open-Drain, Digital
+    // P1.6  -  Unassigned,  Open-Drain, Digital
+    // P1.7  -  Unassigned,  Open-Drain, Digital
+    // P2.0  -  Unassigned,  Push-Pull,  Digital
+    // P2.1  -  Unassigned,  Push-Pull,  Digital
+    // P2.2  -  Unassigned,  Push-Pull,  Digital
+    // P2.3  -  Unassigned,  Push-Pull,  Digital
+
+    P2MDIN    = 0xBF;
+    P0MDOUT   = 0x18;
+    P2MDOUT   = 0x8F;
+    P3MDOUT   = 0x1C;
+    XBR0      = 0x01;
+    XBR1      = 0x40;
+}
+
+void Oscillator_Init()
+{
+    OSCICN    = 0x83;
+}
+
+void Interrupts_Init()
+{
+    IE        = 0x10;
+	//IE        = 0x12;
+
+}
+
+// Initialization function for device,
+// Call Init_Device() from your main program
+void Init_Device(void)
+{
+   	Reset_Sources_Init();
+    PCA_Init();
+    Timer_Init();
+    UART_Init();
+    Port_IO_Init();
+   	Oscillator_Init();
+    Interrupts_Init();
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainActivity"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="5dp"
+        app:backgroundTint="@color/colorNotif"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <ImageView
+        android:id="@+id/leftMove"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|left"
+        android:adjustViewBounds="true"
+        android:src="@drawable/left" />
+
+    <ImageView
+        android:id="@+id/rightMove"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|right"
+        android:adjustViewBounds="true"
+        android:src="@drawable/right" />
+
+    <ImageView
+        android:id="@+id/upMove"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:src="@drawable/up" />
+
+    <ImageView
+        android:id="@+id/backMove"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|center"
+        android:adjustViewBounds="true"
+        android:src="@drawable/back" />
+
+</android.support.design.widget.CoordinatorLayout>

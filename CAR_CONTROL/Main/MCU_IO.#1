@@ -1,0 +1,70 @@
+#ifndef _MCU_IO_H      
+#define _MCU_IO_H
+
+//==================== CAR CONTROL ========================
+
+
+//---------P0----------
+//NC							equ	P0.0
+//NC							equ	P0.1
+//NC							equ P0.2
+sbit BT_EN = P0^3;	 	//  Включение bluetooth
+sbit UART0_TX =	P0^4;	//  UART TX
+sbit UART0_RX =  P0^5;	//  UART RX
+//NC							equ	P0.6
+//NC							equ	P0.7
+//---------P1---------- Входы-выходы для датчиков
+sbit IO7 = P1^0;		
+sbit IO6 = P1^1;
+sbit IO5 = P1^2;
+sbit IO4 = P1^3;
+sbit IO3 = P1^4;
+sbit IO2 = P1^5;
+sbit IO1 = P1^6;
+sbit IO0 = P1^7;
+//---------P2----------
+// Светодиоды
+sbit LED0 = P2^0;	
+sbit LED1 =	P2^1;
+sbit LED2 = P2^2;
+sbit LED3 = P2^3;
+
+//NC							equ P2.4
+//NC							equ P2.5
+//	Напряжение батареи
+sbit VBAT = P2^6;
+//  Влево	
+sbit LEFT = P2^7;
+//---------P3----------
+// NC							equ P3.0
+// Статус bluetooth
+sbit BT_STATUS = P3^1;
+// Вперед			
+sbit FORWARD = P3^2;
+// Назад
+sbit BACKWARD =	P3^3;
+// Вправо
+sbit RIGHT = P3^4;
+
+//-----------Проты ввода-вывода
+extern const unsigned char P0_IO = 0xF7;
+extern const unsigned char P1_IO = 0xFF;
+extern const unsigned char P2_IO = 0x70;
+extern const unsigned char P3_IO = 0xE3;
+
+#define UART_BUFFERSIZE 64
+unsigned char UART_Buffer[UART_BUFFERSIZE];
+
+//Флаг приняты данные по UART
+extern bit b_uart_rx = 0;
+
+#define UART_Header 0
+#define UART_CMD 2
+#define UART_Size 3
+#define UART_Data 4
+
+//определение команд
+#define CMD_CONTROL 0X05
+
+
+#endif

@@ -1,0 +1,2 @@
+"C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\Main\Main.obj",
+"C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\Main\Config.obj"  TO "C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\CAR_CONTROL" RS(256) PL(68) PW(78) 

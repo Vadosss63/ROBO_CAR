@@ -1,0 +1,56 @@
+C51 COMPILER V9.53.0.0   MAIN                                                              08/13/2019 22:25:02 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN Main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.exe Main.c DB OE BR INCDIR(C:\SiLabs\MCU\Inc)
+
+line level    source
+
+   1          #include "Config.h"
+   2          
+   3          
+   4          //------------------------------------------------------------------------------//
+   5          //                               Main function                                  //
+   6          //------------------------------------------------------------------------------//
+   7          
+   8          sbit LED0 = P2^0; //Светодиоды  
+   9          sbit LED1 =     P2^1;   
+  10          sbit LED2 =     P2^2;           
+  11          sbit LED3 =     P2^3;
+  12          
+  13          
+  14          void main(void)
+  15          {
+  16   1              
+  17   1              PCA0MD = 0x00; // Disable the watchdog timer 
+  18   1              Init_Device();
+  19   1               
+  20   1              LED0 = 1;
+  21   1              LED1 = 0;
+  22   1              LED2 = 1;
+  23   1              LED3 = 0;
+  24   1      
+  25   1              while(1) {
+  26   2                      PCA0MD = 0x00;
+  27   2                      LED0 = ~ LED0;
+  28   2                      LED1 = ~ LED1;
+  29   2                      LED2 = ~ LED2;
+  30   2                      LED3 = ~ LED3;
+  31   2              };
+  32   1      
+  33   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     27    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

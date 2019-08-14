@@ -1,0 +1,27 @@
+#ifndef _UART_H      
+#define _UART_H
+
+
+
+unsigned char UART_Buffer[UART_BUFFERSIZE];
+//unsigned char UART_Buffer_Size = 0;
+//unsigned char UART_Input_First = 0;
+//unsigned char UART_Output_First = 0;
+//unsigned char TX_Ready =1;
+//static char Byte;
+
+
+//Флаг приняты данные по UART
+extern bit b_uart_rx = 0;
+
+#define UART_Header 0
+#define UART_CMD 2
+#define UART_Size 3
+#define UART_Data 4
+
+//определение команд
+#define CMD_CONTROL 0X05
+
+void UART0_Interrupt (void);
+
+#endif

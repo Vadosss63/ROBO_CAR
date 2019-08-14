@@ -1,0 +1,113 @@
+C51 COMPILER V9.53.0.0   CONFIG                                                            08/14/2019 11:04:02 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE CONFIG
+OBJECT MODULE PLACED IN Config.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.exe Config.c DB OE BR INCDIR(C:\SiLabs\MCU\Inc)
+
+line level    source
+
+   1          #include "Config.h" 
+   2          
+   3          // Peripheral specific initialization functions,
+   4          // Called from the Init_Device() function
+   5          void Reset_Sources_Init()
+   6          {
+   7   1          int i = 0;
+   8   1          VDM0CN    = 0x80;
+   9   1          for (i = 0; i < 350; i++);  // Wait 100us for initialization
+  10   1          RSTSRC    = 0x06;
+  11   1      }
+  12          
+  13          void PCA_Init()
+  14          {
+  15   1          PCA0MD    &= ~0x40;
+  16   1          PCA0MD    = 0x00;
+  17   1          PCA0CPL4  = 0xFF;
+  18   1          PCA0MD    |= 0x40;
+  19   1          PCA0CPH4  = 0xFF;
+  20   1      }
+  21          
+  22          void Timer_Init()
+  23          {
+  24   1          TCON      = 0x40;
+  25   1          TMOD      = 0x20;
+  26   1          CKCON     = 0x08;
+  27   1          TH1       = 0x96;
+  28   1      }
+  29          
+  30          void UART_Init()
+  31          {
+  32   1          SCON0     = 0x30;
+  33   1      }
+  34          
+  35          void Port_IO_Init()
+  36          {
+  37   1          // P0.0  -  Unassigned,  Open-Drain, Digital
+  38   1          // P0.1  -  Unassigned,  Open-Drain, Digital
+  39   1          // P0.2  -  Unassigned,  Open-Drain, Digital
+  40   1          // P0.3  -  Unassigned,  Push-Pull,  Digital
+  41   1          // P0.4  -  TX0 (UART0), Push-Pull,  Digital
+  42   1          // P0.5  -  RX0 (UART0), Open-Drain, Digital
+  43   1          // P0.6  -  Unassigned,  Open-Drain, Digital
+  44   1          // P0.7  -  Unassigned,  Open-Drain, Digital
+  45   1      
+  46   1          // P1.0  -  Unassigned,  Open-Drain, Digital
+  47   1          // P1.1  -  Unassigned,  Open-Drain, Digital
+  48   1          // P1.2  -  Unassigned,  Open-Drain, Digital
+  49   1          // P1.3  -  Unassigned,  Open-Drain, Digital
+  50   1          // P1.4  -  Unassigned,  Open-Drain, Digital
+  51   1          // P1.5  -  Unassigned,  Open-Drain, Digital
+  52   1          // P1.6  -  Unassigned,  Open-Drain, Digital
+  53   1          // P1.7  -  Unassigned,  Open-Drain, Digital
+  54   1          // P2.0  -  Unassigned,  Push-Pull,  Digital
+  55   1          // P2.1  -  Unassigned,  Push-Pull,  Digital
+C51 COMPILER V9.53.0.0   CONFIG                                                            08/14/2019 11:04:02 PAGE 2   
+
+  56   1          // P2.2  -  Unassigned,  Push-Pull,  Digital
+  57   1          // P2.3  -  Unassigned,  Push-Pull,  Digital
+  58   1      
+  59   1          P2MDIN    = 0xBF;
+  60   1          P0MDOUT   = 0x18;
+  61   1          P2MDOUT   = 0x8F;
+  62   1          P3MDOUT   = 0x1C;
+  63   1          XBR0      = 0x01;
+  64   1          XBR1      = 0x40;
+  65   1      }
+  66          
+  67          void Oscillator_Init()
+  68          {
+  69   1          OSCICN    = 0x83;
+  70   1      }
+  71          
+  72          void Interrupts_Init()
+  73          {
+  74   1          IE        = 0x10;
+  75   1      }
+  76          
+  77          // Initialization function for device,
+  78          // Call Init_Device() from your main program
+  79          void Init_Device(void)
+  80          {
+  81   1              Reset_Sources_Init();
+  82   1          PCA_Init();
+  83   1          Timer_Init();
+  84   1          UART_Init();
+  85   1          Port_IO_Init();
+  86   1              Oscillator_Init();
+  87   1          Interrupts_Init();
+  88   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    102    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

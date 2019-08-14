@@ -1,0 +1,95 @@
+C51 COMPILER V9.53.0.0   MCU_IO                                                            08/14/2019 12:17:55 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE MCU_IO
+OBJECT MODULE PLACED IN MCU_IO.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.exe MCU_IO.h DB OE BR INCDIR(C:\SiLabs\MCU\Inc)
+
+line level    source
+
+   1          #ifndef _MCU_IO_H      
+   2          #define _MCU_IO_H
+   3          
+   4          //==================== CAR CONTROL ========================
+   5          
+   6          
+   7          //---------P0----------
+   8          //NC                                                    equ     P0.0
+   9          //NC                                                    equ     P0.1
+  10          //NC                                                    equ P0.2
+  11          sbit BT_EN = P0^3;              //  Включение bluetooth
+*** ERROR C202 IN LINE 11 OF MCU_IO.h: 'P0': undefined identifier
+  12          sbit UART0_TX = P0^4;   //  UART TX
+*** ERROR C202 IN LINE 12 OF MCU_IO.h: 'P0': undefined identifier
+  13          sbit UART0_RX =  P0^5;  //  UART RX
+*** ERROR C202 IN LINE 13 OF MCU_IO.h: 'P0': undefined identifier
+  14          //NC                                                    equ     P0.6
+  15          //NC                                                    equ     P0.7
+  16          //---------P1---------- Входы-выходы для датчиков
+  17          sbit IO7 = P1^0;                
+*** ERROR C202 IN LINE 17 OF MCU_IO.h: 'P1': undefined identifier
+  18          sbit IO6 = P1^1;
+*** ERROR C202 IN LINE 18 OF MCU_IO.h: 'P1': undefined identifier
+  19          sbit IO5 = P1^2;
+*** ERROR C202 IN LINE 19 OF MCU_IO.h: 'P1': undefined identifier
+  20          sbit IO4 = P1^3;
+*** ERROR C202 IN LINE 20 OF MCU_IO.h: 'P1': undefined identifier
+  21          sbit IO3 = P1^4;
+*** ERROR C202 IN LINE 21 OF MCU_IO.h: 'P1': undefined identifier
+  22          sbit IO2 = P1^5;
+*** ERROR C202 IN LINE 22 OF MCU_IO.h: 'P1': undefined identifier
+  23          sbit IO1 = P1^6;
+*** ERROR C202 IN LINE 23 OF MCU_IO.h: 'P1': undefined identifier
+  24          sbit IO0 = P1^7;
+*** ERROR C202 IN LINE 24 OF MCU_IO.h: 'P1': undefined identifier
+  25          //---------P2----------
+  26          // Светодиоды
+  27          sbit LED0 = P2^0;       
+*** ERROR C202 IN LINE 27 OF MCU_IO.h: 'P2': undefined identifier
+  28          sbit LED1 =     P2^1;
+*** ERROR C202 IN LINE 28 OF MCU_IO.h: 'P2': undefined identifier
+  29          sbit LED2 = P2^2;
+*** ERROR C202 IN LINE 29 OF MCU_IO.h: 'P2': undefined identifier
+  30          sbit LED3 = P2^3;
+*** ERROR C202 IN LINE 30 OF MCU_IO.h: 'P2': undefined identifier
+  31          
+  32          //NC                                                    equ P2.4
+  33          //NC                                                    equ P2.5
+  34          //      Напряжение батареи
+  35          sbit VBAT = P2^6;
+*** ERROR C202 IN LINE 35 OF MCU_IO.h: 'P2': undefined identifier
+  36          //  Влево       
+  37          sbit LEFT = P2^7;
+*** ERROR C202 IN LINE 37 OF MCU_IO.h: 'P2': undefined identifier
+  38          //---------P3----------
+C51 COMPILER V9.53.0.0   MCU_IO                                                            08/14/2019 12:17:55 PAGE 2   
+
+  39          // NC                                                   equ P3.0
+  40          // Статус bluetooth
+  41          sbit BT_STATUS = P3^1;
+*** ERROR C202 IN LINE 41 OF MCU_IO.h: 'P3': undefined identifier
+  42          // Вперед                       
+  43          sbit FORWARD = P3^2;
+*** ERROR C202 IN LINE 43 OF MCU_IO.h: 'P3': undefined identifier
+  44          // Назад
+  45          sbit BACKWARD = P3^3;
+*** ERROR C202 IN LINE 45 OF MCU_IO.h: 'P3': undefined identifier
+  46          // Вправо
+  47          sbit RIGHT = P3^4;
+*** ERROR C202 IN LINE 47 OF MCU_IO.h: 'P3': undefined identifier
+  48          
+  49          //-----------Проты ввода-вывода
+  50          extern const unsigned char P0_IO = 0xF7;
+  51          extern const unsigned char P1_IO = 0xFF;
+  52          extern const unsigned char P2_IO = 0x70;
+  53          extern const unsigned char P3_IO = 0xE3;
+  54          
+  55          //Флаг приняты данные по UART
+  56          extern bit b_uart_rx = 0;
+  57          
+  58          #define UART_BUFFERSIZE 64
+  59          static unsigned char UART_Buffer[UART_BUFFERSIZE];
+  60          
+  61          #endif
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  21 ERROR(S)
