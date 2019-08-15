@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   CONFIG                                                            08/14/2019 21:31:00 PAGE 1   
+C51 COMPILER V9.53.0.0   CONFIG                                                            08/15/2019 17:02:13 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE CONFIG
@@ -62,7 +62,7 @@ line level    source
   53   1          // P0.6  -  Unassigned,  Open-Drain, Digital
   54   1          // P0.7  -  Unassigned,  Open-Drain, Digital
   55   1      
-C51 COMPILER V9.53.0.0   CONFIG                                                            08/14/2019 21:31:00 PAGE 2   
+C51 COMPILER V9.53.0.0   CONFIG                                                            08/15/2019 17:02:13 PAGE 2   
 
   56   1          // P1.0  -  Unassigned,  Open-Drain, Digital
   57   1          // P1.1  -  Unassigned,  Open-Drain, Digital
@@ -97,27 +97,37 @@ line level    source
   86   1      
   87   1      }
   88          
-  89          // Initialization function for device,
-  90          // Call Init_Device() from your main program
-  91          void Init_Device(void)
-  92          {
-  93   1              Reset_Sources_Init();
-  94   1          PCA_Init();
-  95   1          Timer_Init();
-  96   1          UART_Init();
-  97   1          Port_IO_Init();
-  98   1              Oscillator_Init();
-  99   1          Interrupts_Init();
- 100   1      }
+  89          void ADC_Init()
+  90          {
+  91   1          AMX0P     = 0x0E;
+  92   1          AMX0N     = 0x1F;
+  93   1          ADC0CN    = 0x80;
+  94   1      }
+  95          
+  96          // Initialization function for device,
+  97          // Call Init_Device() from your main program
+  98          void Init_Device(void)
+  99          {
+ 100   1              Reset_Sources_Init();
+ 101   1          PCA_Init();
+ 102   1          Timer_Init();
+ 103   1          UART_Init();
+ 104   1          Port_IO_Init();
+ 105   1              ADC_Init();
+ 106   1              Oscillator_Init();
+ 107   1          Interrupts_Init();
+ 108   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    102    ----
+   CODE SIZE        =    115    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
+C51 COMPILER V9.53.0.0   CONFIG                                                            08/15/2019 17:02:13 PAGE 3   
+
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 

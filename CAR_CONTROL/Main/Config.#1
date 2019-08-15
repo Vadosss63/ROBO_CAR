@@ -19,6 +19,7 @@ void PCA_Init()
     PCA0CPH4  = 0xFF;
 }
 
+/*
 void Timer_Init()
 {
     TCON      = 0x50;
@@ -26,6 +27,7 @@ void Timer_Init()
     CKCON     = 0x08;
     TH1       = 0x96;
 }
+*/
 
 void Timer_Init()
 {

@@ -21,11 +21,10 @@ void PCA_Init()
 
 void Timer_Init()
 {
-    TCON      = 0x40;
+    TCON      = 0x50;
     TMOD      = 0x21;
     CKCON     = 0x08;
     TH1       = 0x96;
-    TMR2CN    = 0x04;
 }
 
 //void Timer_Init()

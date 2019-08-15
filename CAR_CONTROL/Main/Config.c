@@ -86,6 +86,13 @@ void Interrupts_Init()
 
 }
 
+void ADC_Init()
+{
+    AMX0P     = 0x0E;
+    AMX0N     = 0x1F;
+    ADC0CN    = 0x80;
+}
+
 // Initialization function for device,
 // Call Init_Device() from your main program
 void Init_Device(void)
@@ -95,6 +102,7 @@ void Init_Device(void)
     Timer_Init();
     UART_Init();
     Port_IO_Init();
+	ADC_Init();
    	Oscillator_Init();
     Interrupts_Init();
 }

@@ -6,6 +6,7 @@
 void parsingControl();
 void sendAnswer();
 void RunLED();
+void readADC();
 
 //------------------------------------------------------------------------------//
 //                               Main function                                  //
@@ -24,6 +25,7 @@ void Init_IO()
 void UART_RX_DECODE()
 {
 	b_uart_rx = 0;
+	AD0BUSY = 1;
 	
 	if(UART_Buffer[UART_CMD] == CMD_CONTROL)
 	{
@@ -33,6 +35,7 @@ void UART_RX_DECODE()
 
 void parsingControl()
 {
+
 	char control = UART_Buffer[UART_Data + 3];
     bit cb0 = (control >> 0) & 1u;
 	bit cb1 = (control >> 1) & 1u;
@@ -56,8 +59,22 @@ void parsingControl()
 
 void sendAnswer()  
 {
-  SBUF0 = 0;
+  	SBUF0 = 0;
+	readADC();
 }
+
+unsigned short volt = 0;
+unsigned char adc_h;
+unsigned char adc_l;
+void readADC()
+{	
+	adc_h = ADC0H;
+	adc_l = ADC0L;
+
+	volt = (adc_h << 8);
+	volt |= adc_l;
+}
+
 
 void main(void)
 {
@@ -78,7 +95,6 @@ void main(void)
 
 #define uart_head_h 0xAB
 #define uart_head_l 0xBA
-static char Byte;
 static int readByte = 0;
 static int sizeData = 0;
 
@@ -107,9 +123,8 @@ void UART0_Interrupt (void) interrupt 4
    if (RI0 == 1)
    {  
 
-      RI0 = 0;                           // Clear interrupt flag
-      Byte = SBUF0;                      // Read a character from UART	
-	  UART_Buffer[readByte] = Byte;      // Store in array
+      RI0 = 0;                           // Clear interrupt flag	
+	  UART_Buffer[readByte] = SBUF0;      // Store in array
 
 	if(readByte == 0)
 	{
@@ -137,7 +152,7 @@ void UART0_Interrupt (void) interrupt 4
 
     if(readByte == 4)
 	{
-		sizeData = Byte;
+		sizeData = UART_Buffer[readByte];
 		readByte++;
 		return;
 	}
@@ -150,7 +165,7 @@ void UART0_Interrupt (void) interrupt 4
 
     if(readByte == sizeData + 5)
 	{
-		if(Byte == getCRC(readByte))	
+		if(UART_Buffer[readByte] == getCRC(readByte))	
 			b_uart_rx = 1;	
 
 	}

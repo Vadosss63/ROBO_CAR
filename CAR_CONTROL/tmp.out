@@ -1,8 +1,8 @@
 
-BL51 BANKED LINKER/LOCATER V6.22 - SN: K1DMC-1C3M4C
+BL51 BANKED LINKER/LOCATER V6.22 - SN: K1LMC-YL56CC
 COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2009
-"C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\Main\Main.obj",
-"C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\Main\Config.obj"  TO "C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\CAR_CONTROL" RS(256) PL(68) PW(78) 
+"C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\Main.obj",
+"C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\Config.obj"  TO "C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\CAR_CONTROL" RS(256) PL(68) PW(78) 
 
-Program Size: data=84.5 xdata=0 code=690
+Program Size: data=87.5 xdata=0 code=732
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

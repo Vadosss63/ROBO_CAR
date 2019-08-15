@@ -1,27 +1,25 @@
-BL51 BANKED LINKER/LOCATER V6.22              08/14/2019  21:31:00  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22              08/15/2019  17:02:13  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CON
->> TROL_2019_08_13\Main\Main.obj, C:\Users\Vadosss63\Desktop\Car_control\MCU\C
->> AR_CONTROL_2019_08_13\Main\Config.obj TO C:\Users\Vadosss63\Desktop\Car_con
->> trol\MCU\CAR_CONTROL_2019_08_13\CAR_CONTROL RS (256) PL (68) PW (78)
+C:\KEIL_V5\C51\BIN\BL51.EXE C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\M
+>> ain.obj, C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\Config.obj TO C:\
+>> Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\CAR_CONTROL RS (256) PL (68) PW (7
+>> 8)
 
 
 MEMORY MODEL: SMALL
 
 
 INPUT MODULES INCLUDED:
-  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\Main\Main.
->> obj (MAIN)
-  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_2019_08_13\Main\Confi
->> g.obj (CONFIG)
+  C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\Main.obj (MAIN)
+  C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\Config.obj (CONFIG)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
 
 
-LINK MAP OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_20
->> 19_08_13\CAR_CONTROL (MAIN)
+LINK MAP OF MODULE:  C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\CAR_CONTROL (
+>> MAIN)
 
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
@@ -33,41 +31,43 @@ LINK MAP OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTROL_20
             BIT     0020H.0   0000H.4   UNIT         _BIT_GROUP_
             BIT     0020H.4   0000H.1   UNIT         ?BI?MAIN
                     0020H.5   0000H.3                *** GAP ***
-            DATA    0021H     004BH     UNIT         ?DT?MAIN
-            IDATA   006CH     0001H     UNIT         ?STACK
+            DATA    0021H     004EH     UNIT         ?DT?MAIN
+            IDATA   006FH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     001BH     UNIT         ?C_INITSEG
-            CODE    001EH     0004H     UNIT         ?PR?SENDANSWER?MAIN
+            CODE    0003H     001FH     UNIT         ?C_INITSEG
                     0022H     0001H                  *** GAP ***
             CODE    0023H     0003H     ABSOLUTE     
-            CODE    0026H     00EEH     UNIT         ?PR?UART0_INTERRUPT?MAIN
-            CODE    0114H     008CH     UNIT         ?C_C51STARTUP
-            CODE    01A0H     0059H     UNIT         ?PR?PARSINGCONTROL?MAIN
-            CODE    01F9H     0022H     UNIT         ?PR?_GETCRC?MAIN
-            CODE    021BH     0018H     UNIT         ?PR?MAIN?MAIN
-            CODE    0233H     0015H     UNIT         ?PR?RESET_SOURCES_INIT?CO
+            CODE    0026H     00F1H     UNIT         ?PR?UART0_INTERRUPT?MAIN
+            CODE    0117H     008CH     UNIT         ?C_C51STARTUP
+            CODE    01A3H     0059H     UNIT         ?PR?PARSINGCONTROL?MAIN
+            CODE    01FCH     0022H     UNIT         ?PR?_GETCRC?MAIN
+            CODE    021EH     0018H     UNIT         ?PR?MAIN?MAIN
+            CODE    0236H     0018H     UNIT         ?PR?INIT_DEVICE?CONFIG
+            CODE    024EH     0015H     UNIT         ?PR?RESET_SOURCES_INIT?CO
 >> NFIG
-            CODE    0248H     0015H     UNIT         ?PR?INIT_DEVICE?CONFIG
-            CODE    025DH     0013H     UNIT         ?PR?PORT_IO_INIT?CONFIG
-            CODE    0270H     0010H     UNIT         ?PR?PCA_INIT?CONFIG
-            CODE    0280H     000FH     UNIT         ?PR?INIT_IO?MAIN
-            CODE    028FH     000DH     UNIT         ?PR?TIMER_INIT?CONFIG
-            CODE    029CH     000BH     UNIT         ?PR?UART_RX_DECODE?MAIN
-            CODE    02A7H     0004H     UNIT         ?PR?UART_INIT?CONFIG
-            CODE    02ABH     0004H     UNIT         ?PR?OSCILLATOR_INIT?CONFI
+            CODE    0263H     0013H     UNIT         ?PR?PORT_IO_INIT?CONFIG
+            CODE    0276H     0012H     UNIT         ?PR?READADC?MAIN
+            CODE    0288H     0010H     UNIT         ?PR?PCA_INIT?CONFIG
+            CODE    0298H     000FH     UNIT         ?PR?INIT_IO?MAIN
+            CODE    02A7H     000DH     UNIT         ?PR?UART_RX_DECODE?MAIN
+            CODE    02B4H     000DH     UNIT         ?PR?TIMER_INIT?CONFIG
+            CODE    02C1H     000AH     UNIT         ?PR?ADC_INIT?CONFIG
+            CODE    02CBH     0006H     UNIT         ?PR?SENDANSWER?MAIN
+            CODE    02D1H     0004H     UNIT         ?PR?UART_INIT?CONFIG
+            CODE    02D5H     0004H     UNIT         ?PR?OSCILLATOR_INIT?CONFI
 >> G
-            CODE    02AFH     0004H     UNIT         ?PR?INTERRUPTS_INIT?CONFI
+            CODE    02D9H     0004H     UNIT         ?PR?INTERRUPTS_INIT?CONFI
 >> G
 
 
 
-OVERLAY MAP OF MODULE:   C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTRO
->> L_2019_08_13\CAR_CONTROL (MAIN)
+OVERLAY MAP OF MODULE:   C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\CAR_CONTR
+>> OL (MAIN)
 
 
-BL51 BANKED LINKER/LOCATER V6.22            08/14/2019  21:31:00  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22            08/15/2019  17:02:13  PAGE 2
 
 
 SEGMENT                                  BIT_GROUP 
@@ -93,6 +93,7 @@ SEGMENT                                  BIT_GROUP
   +--> ?PR?TIMER_INIT?CONFIG
   +--> ?PR?UART_INIT?CONFIG
   +--> ?PR?PORT_IO_INIT?CONFIG
+  +--> ?PR?ADC_INIT?CONFIG
   +--> ?PR?OSCILLATOR_INIT?CONFIG
   +--> ?PR?INTERRUPTS_INIT?CONFIG
 
@@ -102,10 +103,13 @@ SEGMENT                                  BIT_GROUP
 ?PR?PARSINGCONTROL?MAIN               0020H.0  0000H.4
   +--> ?PR?SENDANSWER?MAIN
 
+?PR?SENDANSWER?MAIN                   -----    -----
+  +--> ?PR?READADC?MAIN
 
 
-SYMBOL TABLE OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTRO
->> L_2019_08_13\CAR_CONTROL (MAIN)
+
+SYMBOL TABLE OF MODULE:  C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\CAR_CONTR
+>> OL (MAIN)
 
   VALUE           TYPE          NAME
   ----------------------------------
@@ -125,61 +129,68 @@ SYMBOL TABLE OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTRO
   B:0080H.3       PUBLIC        BT_EN
   D:00E8H         PUBLIC        ADC0CN
   D:00A8H         PUBLIC        IE
-  C:0280H         PUBLIC        Init_IO
-  D:0021H         SYMBOL        Byte
+  C:0298H         PUBLIC        Init_IO
   D:00D9H         PUBLIC        PCA0MD
   D:00D8H         PUBLIC        PCA0CN
   B:00B0H.2       PUBLIC        FORWARD
   D:00B8H         PUBLIC        IP
-  C:01F9H         PUBLIC        _getCRC
-  C:001EH         PUBLIC        sendAnswer
+  C:01FCH         PUBLIC        _getCRC
+BL51 BANKED LINKER/LOCATER V6.22            08/15/2019  17:02:13  PAGE 3
+
+
+  C:02CBH         PUBLIC        sendAnswer
   C:0026H         PUBLIC        UART0_Interrupt
   D:00C0H         PUBLIC        SMB0CN
-BL51 BANKED LINKER/LOCATER V6.22            08/14/2019  21:31:00  PAGE 3
-
-
-  C:021BH         PUBLIC        main
+  C:021EH         PUBLIC        main
   B:00A0H.7       PUBLIC        LEFT
   D:00F8H         PUBLIC        SPI0CN
-  D:0022H         SYMBOL        readByte
+  D:0021H         SYMBOL        readByte
   D:0088H         PUBLIC        TCON
   D:00C8H         PUBLIC        TMR2CN
-  D:0024H         SYMBOL        sizeData
+  D:0023H         SYMBOL        sizeData
+  D:00BEH         PUBLIC        ADC0H
   B:00B0H.3       PUBLIC        BACKWARD
-  D:0026H         PUBLIC        val
+  D:0025H         PUBLIC        val
+  D:00BDH         PUBLIC        ADC0L
+  D:0027H         PUBLIC        volt
   B:00A8H.4       PUBLIC        ES0
   B:0098H.0       PUBLIC        RI0
   B:0020H.4       PUBLIC        b_uart_rx
   B:0098H.1       PUBLIC        TI0
-  C:029CH         PUBLIC        UART_RX_DECODE
-  C:01A0H         PUBLIC        parsingControl
+  C:02A7H         PUBLIC        UART_RX_DECODE
+  C:01A3H         PUBLIC        parsingControl
   D:0099H         PUBLIC        SBUF0
   D:0098H         PUBLIC        SCON0
-  D:0028H         PUBLIC        P0_IO
-  D:0029H         PUBLIC        P1_IO
-  D:002AH         PUBLIC        P2_IO
+  C:0276H         PUBLIC        readADC
+  D:0029H         PUBLIC        adc_h
+  D:002AH         PUBLIC        adc_l
+  D:002BH         PUBLIC        P0_IO
+  D:002CH         PUBLIC        P1_IO
+  D:002DH         PUBLIC        P2_IO
+  B:00E8H.4       PUBLIC        AD0BUSY
   D:00D0H         PUBLIC        PSW
-  D:002BH         PUBLIC        UART_Buffer
-  D:006BH         PUBLIC        P3_IO
+  D:002EH         PUBLIC        UART_Buffer
+  D:006EH         PUBLIC        P3_IO
   -------         PROC          INIT_IO
-  C:0280H         LINE#         14
-  C:0280H         LINE#         15
-  C:0280H         LINE#         16
-  C:0283H         LINE#         17
-  C:0286H         LINE#         18
-  C:0289H         LINE#         19
-  C:028CH         LINE#         21
-  C:028EH         LINE#         22
+  C:0298H         LINE#         15
+  C:0298H         LINE#         16
+  C:0298H         LINE#         17
+  C:029BH         LINE#         18
+  C:029EH         LINE#         19
+  C:02A1H         LINE#         20
+  C:02A4H         LINE#         22
+  C:02A6H         LINE#         23
   -------         ENDPROC       INIT_IO
   -------         PROC          UART_RX_DECODE
-  C:029CH         LINE#         24
-  C:029CH         LINE#         25
-  C:029CH         LINE#         26
-  C:029EH         LINE#         28
-  C:02A3H         LINE#         29
-  C:02A3H         LINE#         30
-  C:02A6H         LINE#         31
-  C:02A6H         LINE#         32
+  C:02A7H         LINE#         25
+  C:02A7H         LINE#         26
+  C:02A7H         LINE#         27
+  C:02A9H         LINE#         28
+  C:02ABH         LINE#         30
+  C:02B0H         LINE#         31
+  C:02B0H         LINE#         32
+  C:02B3H         LINE#         33
+  C:02B3H         LINE#         34
   -------         ENDPROC       UART_RX_DECODE
   -------         PROC          PARSINGCONTROL
   -------         DO            
@@ -189,45 +200,54 @@ SYMBOL TABLE OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTRO
   B:0020H.2       SYMBOL        cb2
   B:0020H.3       SYMBOL        cb3
   -------         ENDDO         
-  C:01A0H         LINE#         34
-  C:01A0H         LINE#         35
-  C:01A0H         LINE#         36
-  C:01A2H         LINE#         37
-  C:01ABH         LINE#         38
-  C:01B7H         LINE#         39
-  C:01C6H         LINE#         40
-  C:01D6H         LINE#         42
-  C:01DAH         LINE#         43
-  C:01DEH         LINE#         45
-  C:01E2H         LINE#         46
-  C:01E6H         LINE#         48
-  C:01EAH         LINE#         49
-  C:01EEH         LINE#         51
-BL51 BANKED LINKER/LOCATER V6.22            08/14/2019  21:31:00  PAGE 4
+  C:01A3H         LINE#         36
+  C:01A3H         LINE#         37
+  C:01A3H         LINE#         39
+BL51 BANKED LINKER/LOCATER V6.22            08/15/2019  17:02:13  PAGE 4
 
 
-  C:01F2H         LINE#         52
-  C:01F6H         LINE#         54
+  C:01A5H         LINE#         40
+  C:01AEH         LINE#         41
+  C:01BAH         LINE#         42
+  C:01C9H         LINE#         43
+  C:01D9H         LINE#         45
+  C:01DDH         LINE#         46
+  C:01E1H         LINE#         48
+  C:01E5H         LINE#         49
+  C:01E9H         LINE#         51
+  C:01EDH         LINE#         52
+  C:01F1H         LINE#         54
+  C:01F5H         LINE#         55
+  C:01F9H         LINE#         57
   -------         ENDPROC       PARSINGCONTROL
   -------         PROC          SENDANSWER
-  C:001EH         LINE#         57
-  C:001EH         LINE#         58
-  C:001EH         LINE#         59
-  C:0021H         LINE#         60
+  C:02CBH         LINE#         60
+  C:02CBH         LINE#         61
+  C:02CBH         LINE#         62
+  C:02CEH         LINE#         63
   -------         ENDPROC       SENDANSWER
+  -------         PROC          READADC
+  C:0276H         LINE#         69
+  C:0276H         LINE#         70
+  C:0276H         LINE#         72
+  C:0279H         LINE#         73
+  C:027CH         LINE#         75
+  C:0283H         LINE#         76
+  C:0287H         LINE#         77
+  -------         ENDPROC       READADC
   -------         PROC          MAIN
-  C:021BH         LINE#         62
-  C:021BH         LINE#         63
-  C:021BH         LINE#         65
-  C:021EH         LINE#         67
-  C:0221H         LINE#         68
-  C:0224H         LINE#         69
-  C:0226H         LINE#         71
-  C:0228H         LINE#         72
-  C:0228H         LINE#         73
-  C:022BH         LINE#         74
-  C:022EH         LINE#         75
-  C:0231H         LINE#         76
+  C:021EH         LINE#         80
+  C:021EH         LINE#         81
+  C:021EH         LINE#         83
+  C:0221H         LINE#         85
+  C:0224H         LINE#         86
+  C:0227H         LINE#         87
+  C:0229H         LINE#         89
+  C:022BH         LINE#         90
+  C:022BH         LINE#         91
+  C:022EH         LINE#         92
+  C:0231H         LINE#         93
+  C:0234H         LINE#         94
   -------         ENDPROC       MAIN
   -------         PROC          _GETCRC
   D:0001H         SYMBOL        size
@@ -235,63 +255,62 @@ SYMBOL TABLE OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTRO
   D:0007H         SYMBOL        crc
   D:0006H         SYMBOL        i
   -------         ENDDO         
-  C:01F9H         LINE#         86
-  C:01FBH         LINE#         87
-  C:01FBH         LINE#         88
-  C:01FDH         LINE#         90
-  C:0210H         LINE#         91
-  C:0210H         LINE#         92
-  C:0217H         LINE#         93
-  C:021AH         LINE#         94
-  C:021AH         LINE#         95
+  C:01FCH         LINE#         103
+  C:01FEH         LINE#         104
+  C:01FEH         LINE#         105
+  C:0200H         LINE#         107
+  C:0213H         LINE#         108
+  C:0213H         LINE#         109
+  C:021AH         LINE#         110
+  C:021DH         LINE#         111
+  C:021DH         LINE#         112
   -------         ENDPROC       _GETCRC
   -------         PROC          UART0_INTERRUPT
-  C:0026H         LINE#         99
-  C:003BH         LINE#         101
-  C:003EH         LINE#         102
-  C:0041H         LINE#         103
-  C:0041H         LINE#         104
-  C:0043H         LINE#         105
-  C:0043H         LINE#         107
-  C:0049H         LINE#         108
-  C:0049H         LINE#         110
-  C:004BH         LINE#         111
-  C:004EH         LINE#         112
-  C:0056H         LINE#         114
-  C:005CH         LINE#         115
-  C:005CH         LINE#         116
-  C:0068H         LINE#         117
-  C:0073H         LINE#         120
-  C:0073H         LINE#         122
-  C:007BH         LINE#         123
-  C:007BH         LINE#         124
-  C:0084H         LINE#         125
-  C:008EH         LINE#         127
-  C:0090H         LINE#         130
-  C:0090H         LINE#         132
-  C:00A0H         LINE#         133
-  C:00A0H         LINE#         134
-BL51 BANKED LINKER/LOCATER V6.22            08/14/2019  21:31:00  PAGE 5
+  C:0026H         LINE#         116
+  C:003BH         LINE#         118
+  C:003EH         LINE#         119
+  C:0041H         LINE#         120
+  C:0041H         LINE#         121
+BL51 BANKED LINKER/LOCATER V6.22            08/15/2019  17:02:13  PAGE 5
 
 
-  C:00AAH         LINE#         136
-  C:00AAH         LINE#         138
-  C:00B2H         LINE#         139
-  C:00B2H         LINE#         140
-  C:00BCH         LINE#         141
-  C:00C6H         LINE#         143
-  C:00C6H         LINE#         145
-  C:00DEH         LINE#         146
-  C:00DEH         LINE#         147
-  C:00E8H         LINE#         149
-  C:00E8H         LINE#         151
-  C:00F0H         LINE#         152
-  C:00F0H         LINE#         153
-  C:00F9H         LINE#         154
-  C:00FBH         LINE#         156
-  C:00FBH         LINE#         157
-  C:0101H         LINE#         159
-  C:0101H         LINE#         160
+  C:0043H         LINE#         122
+  C:0043H         LINE#         124
+  C:0049H         LINE#         125
+  C:0049H         LINE#         127
+  C:004BH         LINE#         128
+  C:0053H         LINE#         130
+  C:0059H         LINE#         131
+  C:0059H         LINE#         132
+  C:0065H         LINE#         133
+  C:0070H         LINE#         136
+  C:0070H         LINE#         138
+  C:0078H         LINE#         139
+  C:0078H         LINE#         140
+  C:0081H         LINE#         141
+  C:008BH         LINE#         143
+  C:008DH         LINE#         146
+  C:008DH         LINE#         148
+  C:009DH         LINE#         149
+  C:009DH         LINE#         150
+  C:00A7H         LINE#         152
+  C:00A7H         LINE#         154
+  C:00AFH         LINE#         155
+  C:00AFH         LINE#         156
+  C:00BAH         LINE#         157
+  C:00C4H         LINE#         159
+  C:00C4H         LINE#         161
+  C:00DCH         LINE#         162
+  C:00DCH         LINE#         163
+  C:00E6H         LINE#         165
+  C:00E6H         LINE#         167
+  C:00EEH         LINE#         168
+  C:00EEH         LINE#         169
+  C:00FCH         LINE#         170
+  C:00FEH         LINE#         172
+  C:00FEH         LINE#         173
+  C:0104H         LINE#         175
+  C:0104H         LINE#         176
   -------         ENDPROC       UART0_INTERRUPT
   -------         ENDMOD        MAIN
 
@@ -303,11 +322,11 @@ SYMBOL TABLE OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTRO
   D:00A6H         PUBLIC        P2MDOUT
   D:00A7H         PUBLIC        P3MDOUT
   D:00FEH         PUBLIC        PCA0CPH4
-  C:025DH         PUBLIC        Port_IO_Init
+  C:0263H         PUBLIC        Port_IO_Init
   D:00D9H         PUBLIC        PCA0MD
   D:00D8H         PUBLIC        PCA0CN
   D:00B8H         PUBLIC        IP
-  C:02ABH         PUBLIC        Oscillator_Init
+  C:02D5H         PUBLIC        Oscillator_Init
   D:00FDH         PUBLIC        PCA0CPL4
   D:00E1H         PUBLIC        XBR0
   D:00E2H         PUBLIC        XBR1
@@ -315,99 +334,111 @@ SYMBOL TABLE OF MODULE:  C:\Users\Vadosss63\Desktop\Car_control\MCU\CAR_CONTRO
   D:00FFH         PUBLIC        VDM0CN
   D:00F3H         PUBLIC        P2MDIN
   D:00F8H         PUBLIC        SPI0CN
-  C:02A7H         PUBLIC        UART_Init
+  C:02D1H         PUBLIC        UART_Init
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
   D:00C8H         PUBLIC        TMR2CN
-  C:02AFH         PUBLIC        Interrupts_Init
+  C:02D9H         PUBLIC        Interrupts_Init
+BL51 BANKED LINKER/LOCATER V6.22            08/15/2019  17:02:13  PAGE 6
+
+
+  C:02C1H         PUBLIC        ADC_Init
   D:00B2H         PUBLIC        OSCICN
-  C:0233H         PUBLIC        Reset_Sources_Init
-  C:0248H         PUBLIC        Init_Device
-  C:0270H         PUBLIC        PCA_Init
+  C:024EH         PUBLIC        Reset_Sources_Init
+  C:0236H         PUBLIC        Init_Device
+  C:0288H         PUBLIC        PCA_Init
   D:008DH         PUBLIC        TH1
   D:00EFH         PUBLIC        RSTSRC
   D:0098H         PUBLIC        SCON0
+  D:00BAH         PUBLIC        AMX0N
+  D:00BBH         PUBLIC        AMX0P
   D:008EH         PUBLIC        CKCON
-  C:028FH         PUBLIC        Timer_Init
+  C:02B4H         PUBLIC        Timer_Init
   D:00D0H         PUBLIC        PSW
   -------         PROC          RESET_SOURCES_INIT
   -------         DO            
   D:0006H         SYMBOL        i
   -------         ENDDO         
-  C:0233H         LINE#         5
-  C:0233H         LINE#         6
-  C:0233H         LINE#         7
-  C:0236H         LINE#         8
-  C:0239H         LINE#         9
-BL51 BANKED LINKER/LOCATER V6.22            08/14/2019  21:31:00  PAGE 6
-
-
-  C:0244H         LINE#         10
-  C:0247H         LINE#         11
+  C:024EH         LINE#         5
+  C:024EH         LINE#         6
+  C:024EH         LINE#         7
+  C:0251H         LINE#         8
+  C:0254H         LINE#         9
+  C:025FH         LINE#         10
+  C:0262H         LINE#         11
   -------         ENDPROC       RESET_SOURCES_INIT
   -------         PROC          PCA_INIT
-  C:0270H         LINE#         13
-  C:0270H         LINE#         14
-  C:0270H         LINE#         15
-  C:0273H         LINE#         16
-  C:0276H         LINE#         17
-  C:0279H         LINE#         18
-  C:027CH         LINE#         19
-  C:027FH         LINE#         20
+  C:0288H         LINE#         13
+  C:0288H         LINE#         14
+  C:0288H         LINE#         15
+  C:028BH         LINE#         16
+  C:028EH         LINE#         17
+  C:0291H         LINE#         18
+  C:0294H         LINE#         19
+  C:0297H         LINE#         20
   -------         ENDPROC       PCA_INIT
   -------         PROC          TIMER_INIT
-  C:028FH         LINE#         32
-  C:028FH         LINE#         33
-  C:028FH         LINE#         34
-  C:0292H         LINE#         35
-  C:0295H         LINE#         36
-  C:0298H         LINE#         37
-  C:029BH         LINE#         38
+  C:02B4H         LINE#         32
+  C:02B4H         LINE#         33
+  C:02B4H         LINE#         34
+  C:02B7H         LINE#         35
+  C:02BAH         LINE#         36
+  C:02BDH         LINE#         37
+  C:02C0H         LINE#         38
   -------         ENDPROC       TIMER_INIT
   -------         PROC          UART_INIT
-  C:02A7H         LINE#         40
-  C:02A7H         LINE#         41
-  C:02A7H         LINE#         42
-  C:02AAH         LINE#         43
+  C:02D1H         LINE#         40
+  C:02D1H         LINE#         41
+  C:02D1H         LINE#         42
+  C:02D4H         LINE#         43
   -------         ENDPROC       UART_INIT
   -------         PROC          PORT_IO_INIT
-  C:025DH         LINE#         45
-  C:025DH         LINE#         46
-  C:025DH         LINE#         69
-  C:0260H         LINE#         70
-  C:0263H         LINE#         71
-  C:0266H         LINE#         72
-  C:0269H         LINE#         73
-  C:026CH         LINE#         74
-  C:026FH         LINE#         75
+  C:0263H         LINE#         45
+  C:0263H         LINE#         46
+  C:0263H         LINE#         69
+  C:0266H         LINE#         70
+  C:0269H         LINE#         71
+  C:026CH         LINE#         72
+  C:026FH         LINE#         73
+  C:0272H         LINE#         74
+  C:0275H         LINE#         75
   -------         ENDPROC       PORT_IO_INIT
   -------         PROC          OSCILLATOR_INIT
-  C:02ABH         LINE#         77
-  C:02ABH         LINE#         78
-  C:02ABH         LINE#         79
-  C:02AEH         LINE#         80
+  C:02D5H         LINE#         77
+  C:02D5H         LINE#         78
+  C:02D5H         LINE#         79
+BL51 BANKED LINKER/LOCATER V6.22            08/15/2019  17:02:13  PAGE 7
+
+
+  C:02D8H         LINE#         80
   -------         ENDPROC       OSCILLATOR_INIT
   -------         PROC          INTERRUPTS_INIT
-  C:02AFH         LINE#         82
-  C:02AFH         LINE#         83
-  C:02AFH         LINE#         84
-  C:02B2H         LINE#         87
+  C:02D9H         LINE#         82
+  C:02D9H         LINE#         83
+  C:02D9H         LINE#         84
+  C:02DCH         LINE#         87
   -------         ENDPROC       INTERRUPTS_INIT
+  -------         PROC          ADC_INIT
+  C:02C1H         LINE#         89
+  C:02C1H         LINE#         90
+  C:02C1H         LINE#         91
+  C:02C4H         LINE#         92
+  C:02C7H         LINE#         93
+  C:02CAH         LINE#         94
+  -------         ENDPROC       ADC_INIT
   -------         PROC          INIT_DEVICE
-  C:0248H         LINE#         91
-  C:0248H         LINE#         92
-  C:0248H         LINE#         93
-  C:024BH         LINE#         94
-  C:024EH         LINE#         95
-  C:0251H         LINE#         96
-  C:0254H         LINE#         97
-  C:0257H         LINE#         98
-  C:025AH         LINE#         99
+  C:0236H         LINE#         98
+  C:0236H         LINE#         99
+  C:0236H         LINE#         100
+  C:0239H         LINE#         101
+  C:023CH         LINE#         102
+  C:023FH         LINE#         103
+  C:0242H         LINE#         104
+  C:0245H         LINE#         105
+  C:0248H         LINE#         106
+  C:024BH         LINE#         107
   -------         ENDPROC       INIT_DEVICE
   -------         ENDMOD        CONFIG
 
-Program Size: data=84.5 xdata=0 code=690
-BL51 BANKED LINKER/LOCATER V6.22            08/14/2019  21:31:00  PAGE 7
-
-
+Program Size: data=87.5 xdata=0 code=732
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

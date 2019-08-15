@@ -27,13 +27,13 @@ void Timer_Init()
     TH1       = 0x96;
 }
 
-//void Timer_Init()
-//{
-//    TCON      = 0x40;
-//    TMOD      = 0x20;
-//    CKCON     = 0x08;
-//    TH1       = 0x96;
-//}
+void Timer_Init()
+{
+    TCON      = 0x40;
+    TMOD      = 0x20;
+    CKCON     = 0x08;
+    TH1       = 0x96;
+}
 
 void UART_Init()
 {
@@ -79,8 +79,8 @@ void Oscillator_Init()
 
 void Interrupts_Init()
 {
-    //IE        = 0x10;
-	IE        = 0x12;
+    IE        = 0x10;
+	//IE        = 0x12;
 
 }
 
