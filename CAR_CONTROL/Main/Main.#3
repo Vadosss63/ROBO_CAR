@@ -64,11 +64,12 @@ void sendAnswer()
 }
 
 unsigned short volt = 0;
+unsigned char adc_h;
+unsigned char adc_l;
 void readADC()
 {	
-
-	unsigned short adc_h = (unsigned short)ADC0H;
-	unsigned short adc_l = (unsigned short)ADC0L;
+	adc_h = ADC0H;
+	adc_l = ADC0L;
 
 	volt = (adc_h << 8);
 	volt |= adc_l;
@@ -86,7 +87,7 @@ void main(void)
    //	IP |= 0x10;                         // Make UART high priority
    	ES0 = 1;                            // Enable UART0 interrupts
 	while(1) {
-		PCA0MD = 0x00;
+		PCA0MD &= ~0x40;
 		if(b_uart_rx)		
 			UART_RX_DECODE();		
 	};
@@ -108,6 +109,13 @@ char getCRC(unsigned char size)
 	}
 	return crc;
 }
+
+
+void readRange(void) interrupt 11
+{
+
+}
+
 
 int val = 0;
 

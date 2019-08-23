@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   MAIN                                                              08/15/2019 17:02:13 PAGE 1   
+C51 COMPILER V9.53.0.0   MAIN                                                              08/23/2019 16:35:58 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   53   1              
   54   1              LED3  = cb3;
   55   1              RIGHT = cb3;
-C51 COMPILER V9.53.0.0   MAIN                                                              08/15/2019 17:02:13 PAGE 2   
+C51 COMPILER V9.53.0.0   MAIN                                                              08/23/2019 16:35:58 PAGE 2   
 
   56   1                                      
   57   1              sendAnswer();
@@ -79,124 +79,142 @@ line level    source
   68          unsigned char adc_l;
   69          void readADC()
   70          {       
-  71   1      
-  72   1              adc_h = ADC0H;
-  73   1              adc_l = ADC0L;
-  74   1      
-  75   1              volt = (adc_h << 8);
-  76   1              volt |= adc_l;
-  77   1      }
+  71   1              adc_h = ADC0H;
+  72   1              adc_l = ADC0L;
+  73   1      
+  74   1              volt = (adc_h << 8);
+  75   1              volt |= adc_l;
+  76   1      }
+  77          
   78          
-  79          
-  80          void main(void)
-  81          {
-  82   1              
-  83   1              PCA0MD &= ~0x40; // Disable the watchdog timer 
-  84   1      
-  85   1              Init_Device();
-  86   1              Init_IO();
-  87   1              EA = 1;
-  88   1         //   IP |= 0x10;                         // Make UART high priority
-  89   1              ES0 = 1;                            // Enable UART0 interrupts
-  90   1              while(1) {
-  91   2                      PCA0MD = 0x00;
-  92   2                      if(b_uart_rx)           
-  93   2                              UART_RX_DECODE();               
-  94   2              };
-  95   1      }
-  96          
-  97          #define uart_head_h 0xAB
-  98          #define uart_head_l 0xBA
-  99          static int readByte = 0;
- 100          static int sizeData = 0;
+  79          void main(void)
+  80          {
+  81   1              
+  82   1              PCA0MD &= ~0x40; // Disable the watchdog timer 
+  83   1      
+  84   1              Init_Device();
+  85   1              Init_IO();
+  86   1              EA = 1;
+  87   1         //   IP |= 0x10;                         // Make UART high priority
+  88   1              ES0 = 1;                            // Enable UART0 interrupts
+  89   1              while(1) {
+  90   2                      PCA0MD &= ~0x40;
+  91   2                      if(b_uart_rx)           
+  92   2                              UART_RX_DECODE();               
+  93   2              };
+  94   1      }
+  95          
+  96          #define uart_head_h 0xAB
+  97          #define uart_head_l 0xBA
+  98          static int readByte = 0;
+  99          static int sizeData = 0;
+ 100          
  101          
- 102          
- 103          char getCRC(unsigned char size)
- 104          {
- 105   1              char crc = 0;
- 106   1              char i;
- 107   1              for (i = 0; i < size; i++)
- 108   1              {
- 109   2                      crc += UART_Buffer[i];  
- 110   2              }
- 111   1              return crc;
- 112   1      }
- 113          
- 114          int val = 0;
- 115          
- 116          void UART0_Interrupt (void) interrupt 4
- 117          {
-C51 COMPILER V9.53.0.0   MAIN                                                              08/15/2019 17:02:13 PAGE 3   
+ 102          char getCRC(unsigned char size)
+ 103          {
+ 104   1              char crc = 0;
+ 105   1              char i;
+ 106   1              for (i = 0; i < size; i++)
+ 107   1              {
+ 108   2                      crc += UART_Buffer[i];  
+ 109   2              }
+ 110   1              return crc;
+ 111   1      }
+ 112          
+ 113          unsigned short Range = 0;
+ 114          unsigned char range_h;
+ 115          unsigned char range_l;
+ 116          
+ 117          void readRange(void) interrupt 11
+C51 COMPILER V9.53.0.0   MAIN                                                              08/23/2019 16:35:58 PAGE 3   
 
- 118   1         PCA0MD &= ~0x40;
- 119   1         if (TI0 == 1)                   // Check if transmit flag is set
- 120   1         {
- 121   2            TI0 = 0; 
- 122   2         }
- 123   1      
- 124   1         if (RI0 == 1)
- 125   1         {  
- 126   2      
- 127   2            RI0 = 0;                           // Clear interrupt flag        
- 128   2                UART_Buffer[readByte] = SBUF0;      // Store in array
- 129   2      
- 130   2              if(readByte == 0)
- 131   2              {
- 132   3                      if(UART_Buffer[readByte] == uart_head_h)                
- 133   3                              readByte++;     
- 134   3      
- 135   3                      return;
- 136   3              }
- 137   2          
- 138   2              if(readByte == 1)
- 139   2              {
- 140   3                      if(UART_Buffer[readByte] == uart_head_l)        
- 141   3                              readByte++;             
- 142   3                      else 
- 143   3                              readByte = 0;
- 144   3      
- 145   3                      return;
- 146   3              }
+ 118          {
+ 119   1              if(CCF1 == 1)
+ 120   1              {
+ 121   2                      CCF1 = 0;
+ 122   2      
+ 123   2                      range_h = PCA0CPH1;
+ 124   2                      range_l = PCA0CPL1;
+ 125   2      
+ 126   2                      Range = (range_h << 8);
+ 127   2                      Range |= range_l;
+ 128   2              }
+ 129   1      }
+ 130          
+ 131          
+ 132          int val = 0;
+ 133          
+ 134          void UART0_Interrupt (void) interrupt 4
+ 135          {
+ 136   1         PCA0MD &= ~0x40;
+ 137   1         if (TI0 == 1)                   // Check if transmit flag is set
+ 138   1         {
+ 139   2            TI0 = 0; 
+ 140   2         }
+ 141   1      
+ 142   1         if (RI0 == 1)
+ 143   1         {  
+ 144   2      
+ 145   2            RI0 = 0;                           // Clear interrupt flag        
+ 146   2                UART_Buffer[readByte] = SBUF0;      // Store in array
  147   2      
- 148   2              if(readByte == 2 || readByte == 3)
+ 148   2              if(readByte == 0)
  149   2              {
- 150   3                      readByte++;
- 151   3                      return;
- 152   3              }
- 153   2      
- 154   2          if(readByte == 4)
- 155   2              {
- 156   3                      sizeData = UART_Buffer[readByte];
- 157   3                      readByte++;
- 158   3                      return;
- 159   3              }
- 160   2              
- 161   2              while(readByte < sizeData + 5)
- 162   2              {
- 163   3                  readByte++; 
- 164   3                      return;
- 165   3              }
- 166   2      
- 167   2          if(readByte == sizeData + 5)
- 168   2              {
- 169   3                      if(UART_Buffer[readByte] == getCRC(readByte))   
- 170   3                              b_uart_rx = 1;  
- 171   3      
- 172   3              }
- 173   2          readByte = 0;             
- 174   2      
- 175   2         }
- 176   1      }
+ 150   3                      if(UART_Buffer[readByte] == uart_head_h)                
+ 151   3                              readByte++;     
+ 152   3      
+ 153   3                      return;
+ 154   3              }
+ 155   2          
+ 156   2              if(readByte == 1)
+ 157   2              {
+ 158   3                      if(UART_Buffer[readByte] == uart_head_l)        
+ 159   3                              readByte++;             
+ 160   3                      else 
+ 161   3                              readByte = 0;
+ 162   3      
+ 163   3                      return;
+ 164   3              }
+ 165   2      
+ 166   2              if(readByte == 2 || readByte == 3)
+ 167   2              {
+ 168   3                      readByte++;
+ 169   3                      return;
+ 170   3              }
+ 171   2      
+ 172   2          if(readByte == 4)
+ 173   2              {
+ 174   3                      sizeData = UART_Buffer[readByte];
+ 175   3                      readByte++;
+ 176   3                      return;
+ 177   3              }
+ 178   2              
+ 179   2              while(readByte < sizeData + 5)
+C51 COMPILER V9.53.0.0   MAIN                                                              08/23/2019 16:35:58 PAGE 4   
+
+ 180   2              {
+ 181   3                  readByte++; 
+ 182   3                      return;
+ 183   3              }
+ 184   2      
+ 185   2          if(readByte == sizeData + 5)
+ 186   2              {
+ 187   3                      if(UART_Buffer[readByte] == getCRC(readByte))   
+ 188   3                              b_uart_rx = 1;  
+ 189   3      
+ 190   3              }
+ 191   2          readByte = 0;             
+ 192   2      
+ 193   2         }
+ 194   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-C51 COMPILER V9.53.0.0   MAIN                                                              08/15/2019 17:02:13 PAGE 4   
-
-   CODE SIZE        =    440    ----
+   CODE SIZE        =    467    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     78    ----
+   DATA SIZE        =     82    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =      1       4
 END OF MODULE INFORMATION.

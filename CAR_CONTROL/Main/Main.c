@@ -87,7 +87,7 @@ void main(void)
    //	IP |= 0x10;                         // Make UART high priority
    	ES0 = 1;                            // Enable UART0 interrupts
 	while(1) {
-		PCA0MD = 0x00;
+		PCA0MD &= ~0x40;
 		if(b_uart_rx)		
 			UART_RX_DECODE();		
 	};
@@ -109,6 +109,25 @@ char getCRC(unsigned char size)
 	}
 	return crc;
 }
+
+unsigned short Range = 0;
+unsigned char range_h;
+unsigned char range_l;
+
+void readRange(void) interrupt 11
+{
+	if(CCF1 == 1)
+	{
+		CCF1 = 0;
+
+		range_h = PCA0CPH1;
+		range_l = PCA0CPL1;
+
+		Range = (range_h << 8);
+		Range |= range_l;
+	}
+}
+
 
 int val = 0;
 

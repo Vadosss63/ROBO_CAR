@@ -12,28 +12,25 @@ void Reset_Sources_Init()
 
 void PCA_Init()
 {
+    PCA0CN    = 0x40;
     PCA0MD    &= ~0x40;
-    PCA0MD    = 0x00;
+    PCA0MD    = 0x04;
+    PCA0CPM0  = 0xC2;
+    PCA0CPM1  = 0x11;
+    PCA0CPL0  = 0xF7;
     PCA0CPL4  = 0xFF;
     PCA0MD    |= 0x40;
+    PCA0CPH0  = 0xFF;
     PCA0CPH4  = 0xFF;
 }
 
-/*
 void Timer_Init()
 {
     TCON      = 0x50;
-    TMOD      = 0x21;
-    CKCON     = 0x08;
-    TH1       = 0x96;
-}
-*/
-
-void Timer_Init()
-{
-    TCON      = 0x40;
-    TMOD      = 0x20;
-    CKCON     = 0x08;
+    TMOD      = 0x22;
+    CKCON     = 0x0C;
+    TL0       = 0xE2;
+    TH0       = 0xE2;
     TH1       = 0x96;
 }
 
@@ -42,19 +39,26 @@ void UART_Init()
     SCON0     = 0x30;
 }
 
+void ADC_Init()
+{
+    AMX0P     = 0x0E;
+    AMX0N     = 0x1F;
+    ADC0CN    = 0x80;
+}
+
 void Port_IO_Init()
 {
-    // P0.0  -  Unassigned,  Open-Drain, Digital
-    // P0.1  -  Unassigned,  Open-Drain, Digital
-    // P0.2  -  Unassigned,  Open-Drain, Digital
-    // P0.3  -  Unassigned,  Push-Pull,  Digital
+    // P0.0  -  Skipped,     Open-Drain, Digital
+    // P0.1  -  Skipped,     Open-Drain, Digital
+    // P0.2  -  Skipped,     Open-Drain, Digital
+    // P0.3  -  Skipped,     Push-Pull,  Digital
     // P0.4  -  TX0 (UART0), Push-Pull,  Digital
     // P0.5  -  RX0 (UART0), Open-Drain, Digital
-    // P0.6  -  Unassigned,  Open-Drain, Digital
-    // P0.7  -  Unassigned,  Open-Drain, Digital
+    // P0.6  -  Skipped,     Open-Drain, Digital
+    // P0.7  -  Skipped,     Open-Drain, Digital
 
-    // P1.0  -  Unassigned,  Open-Drain, Digital
-    // P1.1  -  Unassigned,  Open-Drain, Digital
+    // P1.0  -  CEX0 (PCA),  Push-Pull,  Digital
+    // P1.1  -  CEX1 (PCA),  Open-Drain, Digital
     // P1.2  -  Unassigned,  Open-Drain, Digital
     // P1.3  -  Unassigned,  Open-Drain, Digital
     // P1.4  -  Unassigned,  Open-Drain, Digital
@@ -68,10 +72,12 @@ void Port_IO_Init()
 
     P2MDIN    = 0xBF;
     P0MDOUT   = 0x18;
+    P1MDOUT   = 0x01;
     P2MDOUT   = 0x8F;
     P3MDOUT   = 0x1C;
+    P0SKIP    = 0xCF;
     XBR0      = 0x01;
-    XBR1      = 0x40;
+    XBR1      = 0x42;
 }
 
 void Oscillator_Init()
@@ -81,28 +87,20 @@ void Oscillator_Init()
 
 void Interrupts_Init()
 {
+    EIE1      = 0x10;
     IE        = 0x10;
-	//IE        = 0x12;
-
-}
-
-void ADC_Init()
-{
-    AMX0P     = 0x0E;
-    AMX0N     = 0x1F;
-    ADC0CN    = 0x80;
 }
 
 // Initialization function for device,
 // Call Init_Device() from your main program
 void Init_Device(void)
 {
-   	Reset_Sources_Init();
+    Reset_Sources_Init();
     PCA_Init();
     Timer_Init();
     UART_Init();
+    ADC_Init();
     Port_IO_Init();
-	ADC_Init();
-   	Oscillator_Init();
+    Oscillator_Init();
     Interrupts_Init();
 }

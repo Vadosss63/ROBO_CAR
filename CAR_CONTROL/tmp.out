@@ -4,5 +4,5 @@ COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2009
 "C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\Main.obj",
 "C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\Main\Config.obj"  TO "C:\Users\Pavel\Desktop\ROBO_CAR\CAR_CONTROL\CAR_CONTROL" RS(256) PL(68) PW(78) 
 
-Program Size: data=87.5 xdata=0 code=732
+Program Size: data=91.5 xdata=0 code=796
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
